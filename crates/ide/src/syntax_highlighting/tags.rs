@@ -2,17 +2,21 @@
 //! A tag is not unlike a CSS class.
 
 use std::{fmt, ops};
+#[cfg(feature="serde")] use serde::{Serialize, Deserialize};
 
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord)]
+#[cfg_attr(feature="serde", derive(Serialize, Deserialize))]
 pub struct Highlight {
     pub tag: HighlightTag,
     pub modifiers: HighlightModifiers,
 }
 
 #[derive(Default, Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord)]
+#[cfg_attr(feature="serde", derive(Serialize, Deserialize))]
 pub struct HighlightModifiers(u32);
 
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord)]
+#[cfg_attr(feature="serde", derive(Serialize, Deserialize))]
 pub enum HighlightTag {
     Attribute,
     BoolLiteral,

@@ -19,7 +19,7 @@ oorandom = "11.1.2"
 pulldown-cmark-to-cmark = "5.0.0"
 pulldown-cmark = {version = "0.7.2", default-features = false}
 url = "2.1.1"
-
+serde = { version = "1.0", features = ["derive"], optional=true }
 stdx = { path = "../stdx", version = "0.0.0" }
 syntax = { path = "../syntax", version = "0.0.0" }
 text_edit = { path = "../text_edit", version = "0.0.0" }

@@ -2,22 +2,25 @@
 //! A tag is not unlike a CSS class.
 
 use std::{fmt, ops};
+#[cfg(feature="serde")] use serde::{Serialize, Deserialize};
 
 use ide_db::SymbolKind;
 
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord)]
+#[cfg_attr(feature="serde", derive(Serialize, Deserialize))]
 pub struct Highlight {
     pub tag: HlTag,
     pub mods: HlMods,
 }
 
 #[derive(Default, Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord)]
+#[cfg_attr(feature="serde", derive(Serialize, Deserialize))]
 pub struct HlMods(u32);
 
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord)]
+#[cfg_attr(feature="serde", derive(Serialize, Deserialize))]
 pub enum HlTag {
     Symbol(SymbolKind),
-
     BoolLiteral,
     BuiltinType,
     ByteLiteral,

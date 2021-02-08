@@ -1,0 +1,13 @@
+[package]
+name = "types"
+version = "0.0.0"
+description = "Types for interaction with Rust Analyzer"
+license = "MIT OR Apache-2.0"
+authors = ["rust-analyzer developers"]
+edition = "2018"
+
+[features]
+serde = ['dep:serde']
+
+[dependencies]
+serde = { version = "1.0", features = ["derive"], optional = true }
